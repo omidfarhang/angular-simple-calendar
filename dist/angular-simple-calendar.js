@@ -18,6 +18,7 @@ angular.module('500tech.simple-calendar', []).directive('simpleCalendar', functi
 
       $scope.onClick = function (date) {
         if (!date || date.disabled) { return; }
+          $scope.selectedDay = date;
         if (date.event) {
           $scope.options.eventClick(date);
         } else {

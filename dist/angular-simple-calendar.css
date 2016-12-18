@@ -113,3 +113,8 @@ simple-calendar .day.disabled {
   color: silver;
   background-color: white;
 }
+
+simple-calendar .selected .day-number {
+  background-color: #4B7BAD !important;
+  color: #ffffff;
+}
