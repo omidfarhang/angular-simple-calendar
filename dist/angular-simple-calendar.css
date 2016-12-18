@@ -1,5 +1,6 @@
 simple-calendar * {
   user-select: none;
+  outline: none;
 }
 
 simple-calendar .calendar{
