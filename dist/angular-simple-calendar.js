@@ -5,7 +5,7 @@ angular.module('500tech.simple-calendar', []).directive('simpleCalendar', functi
       options: '=?',
       events: '=?'
     },
-    templateUrl: 'calendarTemplate.html',
+    templateUrl: 'bower_components/angular-simple-calendar/dist/angular-simple-calendar.html',
     controller: ['$scope', function ($scope) {
       var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
       var WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -13,12 +13,10 @@ angular.module('500tech.simple-calendar', []).directive('simpleCalendar', functi
 
       $scope.options = $scope.options || {};
       $scope.options.dayNamesLength = $scope.options.dayNamesLength || 1;
-      $scope.options.multiEventDates = $scope.options.multiEventDates || false;
-	    $scope.options.maxEventsPerDay = $scope.options.maxEventsPerDay || 3;
 
       $scope.onClick = function (date) {
         if (!date || date.disabled) { return; }
-          $scope.selectedDay = date;
+        $scope.selectedDay = date;
         if (date.event) {
           $scope.options.eventClick(date);
         } else {
@@ -36,11 +34,10 @@ angular.module('500tech.simple-calendar', []).directive('simpleCalendar', functi
 
       bindEvent = function (date) {
         if (!date || !$scope.events) { return; }
-        date.event = [];
         $scope.events.forEach(function(event) {
           event.date = new Date(event.date);
           if (date.year === event.date.getFullYear() && date.month === event.date.getMonth() && date.day === event.date.getDate()) {
-            date.event.push(event);
+            date.event = event;
           }
         });
       };
