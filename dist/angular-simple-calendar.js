@@ -162,10 +162,10 @@ angular.module('500tech.simple-calendar', []).directive('simpleCalendar', functi
             if (num === 0) {
                 return 'progress0'
             }
-            if (0 < num < 50) {
+            if (0 < num && num < 50) {
                 return 'progress49'
             }
-            if (50 < num < 100) {
+            if (50 < num && num < 100) {
                 return 'progress99'
             }
             if (num === 100) {
