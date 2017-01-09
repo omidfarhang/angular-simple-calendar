@@ -16,7 +16,7 @@
     <div>
         <div ng-repeat="week in weeks track by $index" class="week">
             <div class="day" ng-repeat="date in week  track by $index" ng-class="{default: isDefaultDate(date), event: date.event, disabled: date.disabled || !date, selected: selectedDay == date}" ng-click="onClick(date)">
-                <div class="day-number">{{ date.day || "&nbsp;" }}</div>
+                <div class="day-number"><div class="text">{{ date.day || "&nbsp;" }}</div><md-progress-circular ng-show="date.event" ng-class="progressClass(date.event.done)" md-mode="determinate" value="{{date.event.done}}"></md-progress-circular></div>
                 <div class="event-title">{{ date.event.title || "&nbsp;" }}</div>
             </div>
         </div>

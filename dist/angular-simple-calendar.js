@@ -158,6 +158,21 @@ angular.module('500tech.simple-calendar', []).directive('simpleCalendar', functi
         calculateWeeks();
       };
 
+        $scope.progressClass = function (num) {
+            if (num === 0) {
+                return 'progress0'
+            }
+            if (0 < num < 50) {
+                return 'progress49'
+            }
+            if (50 < num < 100) {
+                return 'progress99'
+            }
+            if (num === 100) {
+                return 'progress100'
+            }
+        };
+
       $scope.nextMonth = function () {
         if (!$scope.allowedNextMonth()) { return; }
         var currIndex = MONTHS.indexOf($scope.selectedMonth);
